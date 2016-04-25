@@ -1,0 +1,80 @@
+body{
+  font-family: 'Inconsolata';
+  text-align: center;
+  line-height: 150%;
+}
+
+h1{
+  font-family: 'Lobster';
+  margin: 50px 0;
+}
+
+h3{
+  margin: 20px 0;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.menu{
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  top:100px;
+  padding-right: 15px;
+  border-right: solid 2px rgb(206, 210, 207);
+}
+
+.menu-item{
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  padding: 20px 0;
+  cursor: pointer;
+  transition-property: width background-color;
+  transition-duration: .5s;
+}
+
+.active{
+  background-color: rgb(219, 221, 217);
+}
+
+.menu-item:hover{
+  width: 300px;
+}
+
+.menu-item:active{
+  background-color: rgb(228, 231, 224);
+}
+
+.item{
+  position: fixed;
+  overflow-y: scroll;
+  height: 100%;
+  top: 150px;
+  left: 350px;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: .5s;
+  text-align: left;
+}
+
+.show-item{
+  opacity: 1;
+}
+
+.tooltip{
+  opacity: 0;
+  position: absolute;
+  font-size: .8em;
+  background-color: #fff;
+  padding: 7px;
+  border: solid 1px rgb(215, 220, 223);
+  transition-property: opacity;
+  transition-duration: .5s;
+}
+
+strong:hover span{
+  opacity: 1;
+}
