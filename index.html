@@ -18,7 +18,7 @@
     <h2 class="menu-item" target="boilerplate">Boilerplate JS</h2>
   </div>
   <div id="sectionsContainer">
-    <div id="intro" class="item">
+    <div id="intro" class="item first-item">
       <h2>Intro</h2>
       <div>
         JS architecture has to be seen as modular in order to build complex scalable architectures that are easy to mantain.</br></br>
@@ -85,6 +85,7 @@
         children = item.parentNode.children;
         Array.prototype.forEach.call(children, i=>{
           i.classList.remove('show-item');
+          i.classList.remove('first-item');
         });
         item.classList.add('show-item');
       })

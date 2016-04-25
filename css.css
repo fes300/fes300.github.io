@@ -75,6 +75,10 @@ h3{
   margin-right: 15px;
 }
 
+.first-item{
+  opacity: 1;
+}
+
 .show-item{
   opacity: 1;
 }
