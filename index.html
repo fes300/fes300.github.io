@@ -25,16 +25,16 @@
     <div id="intro" class="item first-item">
       <h2>Intro</h2>
       <div>
-        JS architecture has to be seen as modular in order to build complex scalable architectures that are easy to mantain.</br></br>
+        JS architecture needs to be modular in order to build complex scalable architectures that are easy to mantain.</br></br>
         Doing so allows for separate pieces of code to work independently with respect to one another, thus making them a lot easyer to debug and mantain.</br></br>
-        Modern code architectures are experiencing a shift of the "home" of the main logic from the backend services, which are increasingly designed as mere data dispensers communicating throug a restful API architecture, to the frontend.</br></br>
-        The client side is evolving to adapt to this new logic and increasigly elaborate frontend solutions saw the light in recent years to address the need (Backbone, Angular, React).</br></br>
+        Modern code architectures are experiencing a shift of the main logic from the backend services, which are increasingly designed as mere data dispensers communicating throug a restful API architecture, to the frontend.</br>
+        The client side is evolving to adapt to this new logic and in order to address the new needs, increasigly elaborate frontend solutions saw the light in recent years (Backbone, Angular, React).</br></br>
         I will now try to make a very incomplete overview of the existing possibilities to structure your code in case you are going with one of these, in Particular I will focus on looking for a good pal for <strong>React - Redux</strong>.
       </div>
     </div>
     <div id="rules-of-modules" class="item">
       <h2>Golden Rules</h2>
-      There are a few rules you should follow in order to write consistent clean modules that do not interfere with your architecture:
+      There are a few rules you should follow in order to write consistent, clean modules that do not interfere with your architecture:
       <ul>
         <li>The 'sandbox' (interface to ensure <strong>loose coupling <span class="tooltip">a loosely coupled system is one in which each of its components has, or makes use of, little or no knowledge of the definitions of other separate components</span></strong>[reducers?]) is where the interaction with outer worls takes place, NOWERE ELSE!</li>
         <li>You must not access non native global objects inside a module.</li>

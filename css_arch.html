@@ -18,23 +18,106 @@
   </div>
   <div class="menu">
     <h2 class="menu-item" target="intro">Intro & general </br>thoughts</h2>
+    <h2 class="menu-item" target="seven_one">7-1 Architecture</h2>
+    <h2 class="menu-item" target="oocss">OOCSS (atomic </br>design)</h2>
   </div>
   <div id="sectionsContainer">
     <div id="intro" class="item first-item">
       <h2>Intro</h2>
       <div>
-        JS architecture has to be seen as modular in order to build complex scalable architectures that are easy to mantain.</br></br>
-        Doing so allows for separate pieces of code to work independently with respect to one another, thus making them a lot easyer to debug and mantain.</br></br>
-        Modern code architectures are experiencing a shift of the "home" of the main logic from the backend services, which are increasingly designed as mere data dispensers communicating throug a restful API architecture, to the frontend.</br></br>
-        The client side is evolving to adapt to this new logic and increasigly elaborate frontend solutions saw the light in recent years to address the need (Backbone, Angular, React).</br></br>
-        I will now try to make a very incomplete overview of the existing possibilities to structure your code in case you are going with one of these, in Particular I will focus on looking for a good pal for <strong>React - Redux</strong>.
+        Along the lines of JS architecture, CSS architecture also has to be modular if you don't want to end up with a 'boiling potato'.</br></br>
+        There are many different (but somewhat similar) approaches to structure a scalable CSS library:
+        <ul>
+          <li>
+            SMACCS
+          </li>   
+          <li>
+            Expressive CSS
+          </li>    
+          <li>
+            BEM
+          </li>    
+          <li>
+            7-1 Architecture
+          </li>    
+          <li>
+            OOCSS (Atomic CSS)
+          </li>       
+        </ul>
+      </div>
+    </div>
+    <div id="seven_one" class="item">
+      <h2>7-1</h2>
+      7-1 Pattern is described in the official SASS documentation. Basically the 7-1 stands for 7 foldersw, 1 file.</br></br>
+      The seven folders are:
+      <ul class="italic">
+        <li>base/</li>
+        <li>components/</li>
+        <li>layout/</li>
+        <li>pages/</li>
+        <li>themes/</li>
+        <li>abstracts/</li>
+        <li>vendors/</li>
+      </ul>
+
+      that are themselves structured as folows:
+      <pre class="code">sass/
+        |
+        | abstracts/
+        |   | _variables.scss    # Sass Variables
+        |   | _functions.scss    # Sass Functions
+        |   | _mixins.scss       # Sass Mixins
+        |   | _placeholders.scss # Sass Placeholders
+        |
+        | base/
+        |   | _reset.scss        # Reset/normalize
+        |   | _typography.scss   # Typography rules
+        |
+        | components/
+        |   | _buttons.scss      # Buttons
+        |   | _carousel.scss     # Carousel
+        |   | _cover.scss        # Cover
+        |   | _dropdown.scss     # Dropdown
+        |
+        | layout/
+        |   | _navigation.scss   # Navigation
+        |   | _grid.scss         # Grid system
+        |   | _header.scss       # Header
+        |   | _footer.scss       # Footer
+        |   | _sidebar.scss      # Sidebar
+        |   | _forms.scss        # Forms
+        |
+        | pages/
+        |   | _home.scss         # Home specific styles
+        |   | _contact.scss      # Contact specific styles
+        |
+        | themes/
+        |   | _theme.scss        # Default theme
+        |   | _admin.scss        # Admin theme
+        |
+        | vendors/
+        |   | _bootstrap.scss    # Bootstrap
+        |   | _jquery-ui.scss    # jQuery UI
+        |
+        
+      </pre>
+
+      <p>And the single file:</p>
+      <ul>
+        <li>main.scss</li>
+      </ul>
+      <h2>My toughts</h2>
+      This approach is a little less modular compared to Atomic design, as some of the folders are there to serve more general parts of the UI; you might say that components need to be aware of the layout styling. A more helpful approach would be (in my humble opinion) to discard those folders and keep the shared styling (if there ever is one) in the abstracts folder. 
+    </div>
+    <div id="oocss" class="item">
+      <h2>OOCSS</h2>
+      <div>
       </div>
     </div>
   </div>
 
   <script>
     'use strict';
-
     let menu_items = document.querySelectorAll('.menu-item');
     Array.prototype.forEach.call(menu_items, mi=>{
       mi.addEventListener('click', (e)=>{
