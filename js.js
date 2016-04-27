@@ -19,11 +19,11 @@ Array.prototype.forEach.call(menu_items, mi=>{
 })
 
 
-document.addEventListener("DOMContentLoaded", function(event) { 
+document.addEventListener("DOMContentLoaded", function(event) {
   let h = screen.height + window.innerHeight;
   console.log(h);
   document.body.style.height = `${h}px`;
-  document.body.style.background = 'linear-gradient(to bottom, white, black) no-repeat';
-  document.body.style.backgroundAttachment = 'fixed'; 
+  document.body.style.background = 'linear-gradient(to bottom, white 30%, rgba(0,0,0,.7)) no-repeat';
+  document.body.style.backgroundAttachment = 'fixed';
   document.body.style.margin = 0;
 });
