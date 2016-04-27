@@ -76,25 +76,5 @@
       </div>
     </div>
   </div>
-
-  <script>
-    'use strict';
-
-    let menu_items = document.querySelectorAll('.menu-item');
-    Array.prototype.forEach.call(menu_items, mi=>{
-      mi.addEventListener('click', (e)=>{
-        Array.prototype.forEach.call(menu_items, mi=>{
-          mi.classList.remove('active');
-        });
-        e.target.classList.add('active');
-        let item = document.querySelector(`#${e.target.getAttribute('target')}`),
-        children = item.parentNode.children;
-        Array.prototype.forEach.call(children, i=>{
-          i.classList.remove('show-item');
-          i.classList.remove('first-item');
-        });
-        item.classList.add('show-item');
-      })
-    })
-  </script>
+  <script type="text/javascript" src="js.js"></script>
 </body>

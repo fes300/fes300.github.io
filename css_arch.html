@@ -10,7 +10,7 @@
 </header>
 <body>
   <div id="navbar">
-    <a class="active" href="index.html">JS_Architecture |</a>
+    <a href="index.html">JS_Architecture |</a>
     <a class="active" href="css_arch.html">CSS_Architecture</a>
   </div>
   <div id="title">
@@ -20,6 +20,7 @@
     <h2 class="menu-item" target="intro">Intro & general </br>thoughts</h2>
     <h2 class="menu-item" target="seven_one">7-1 Architecture</h2>
     <h2 class="menu-item" target="oocss">OOCSS (atomic </br>design)</h2>
+    <h2 class="menu-item" target="enduring">Enduring CSS</h2>
   </div>
   <div id="sectionsContainer">
     <div id="intro" class="item first-item">
@@ -114,25 +115,18 @@
       <div>
       </div>
     </div>
+    <div id="enduring" class="item">
+      <h2>Enduring CSS</h2>
+      <div>
+        The <strong>Enduring CSS approach<span class="tooltip">By Ben Fraim (https://benfrain.com/enduring-css-writing-style-sheets-rapidly-changing-long-lived-projects/)</span></strong> states that a preprocessor such as SASS and the following features are essential for a mature CSS codebase:
+        <ul>
+          <li>variables (to mitigate human errors with colour picking and specifying constants like grid measures)</li>
+          <li>fragment/partials of styles (to facilitate one-to-one parity with a feature branch or template)</li>
+          <li>basic mathematic operations (to negate reliance on ‘magic’ numbers)</li>
+          <li>colour manipulations (to allow consistent manipulation of the aforementioned variables)</li>
+        </ul>
+      </div>
+    </div>
   </div>
-
-  <script>
-    'use strict';
-    let menu_items = document.querySelectorAll('.menu-item');
-    Array.prototype.forEach.call(menu_items, mi=>{
-      mi.addEventListener('click', (e)=>{
-        Array.prototype.forEach.call(menu_items, mi=>{
-          mi.classList.remove('active');
-        });
-        e.target.classList.add('active');
-        let item = document.querySelector(`#${e.target.getAttribute('target')}`),
-        children = item.parentNode.children;
-        Array.prototype.forEach.call(children, i=>{
-          i.classList.remove('show-item');
-          i.classList.remove('first-item');
-        });
-        item.classList.add('show-item');
-      })
-    })
-  </script>
+  <script type="text/javascript" src="js.js"></script>
 </body>
