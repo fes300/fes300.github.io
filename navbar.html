@@ -1,0 +1,60 @@
+<link href='header.css' rel='stylesheet' type='text/css'></style>
+
+<template>
+    <navbarTitle></navbarTitle>
+    <subsections></subsections>
+</template>
+
+<script>
+((window, document, undefined) => {
+    var thatDoc = document,
+        thisDoc =  (thatDoc._currentScript || thatDoc.currentScript).ownerDocument,
+       template = thisDoc.querySelector('template').content,
+ MyElementProto = Object.create(HTMLElement.prototype);
+
+  //define MyElementProto
+  MyElementProto.createdCallback = function () {
+    var shadowRoot = this.createShadowRoot(),
+             clone = thatDoc.importNode(template, true);
+
+    shadowRoot.appendChild(clone);
+
+    //initiate elements
+    this.navbarTitle = shadowRoot.querySelector('navbarTitle');
+    this.navbarSubsections = shadowRoot.querySelector('subsections');
+
+    //set title
+    var mytitle = this.getAttribute('title') || 'no title defined';
+    this.setTitle(mytitle);
+
+    //set childrens
+    var subsections = this.getAttribute('subsections').split(',') || ['no subelements defined'];
+    this.setSubsections(subsections);
+  };
+
+  MyElementProto.setTitle = function (val) {
+    this.mytitle = val;
+    this.navbarTitle.textContent = this.mytitle;
+  };
+
+  MyElementProto.setSubsections = function (val) {
+    this.subsections = val;
+    Array.prototype.forEach.call(this.subsections, (s) => {
+      div = document.createElement('div');
+      div.classList.add('navEl');
+      div.addEventListener('click', (e) => {
+        let pos = thatDoc.querySelector(`#${e.target.innerHTML}`).getBoundingClientRect().top;
+        window.scrollTo(0, pos);
+      })
+      div.textContent = s;
+      this.navbarSubsections.appendChild(div);
+    })
+  };
+
+  window.MyElement = thatDoc.registerElement('nav-bar', {
+    prototype: MyElementProto
+  });
+
+})(window, document);
+
+</script>
