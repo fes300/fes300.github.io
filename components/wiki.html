@@ -9,8 +9,31 @@
 </head>
 <body>
 
-  <nav-bar title="Wiki" subsections="JS_intro, rules_of_modules, boilerplate, CSS_intro, seven_one, oocss, enduringCSS"></nav-bar>
+  <nav-bar title="Wiki" subsections="Useful_git_commands, Useful_terminal_commands, JS_intro, rules_of_modules, boilerplate, CSS_intro, seven_one, oocss, enduringCSS, curring_functions"></nav-bar>
   <div class="space"></div>
+
+  <div id="Useful_git_commands" class="wikiDiv">
+    <h2>Useful git commands</h2>
+    <ul>
+      <li>After fetching, remove any remote-tracking branches which no longer exist on the remote:<p class="code">$ git fetch -p</p></li>
+      <li>Delete local branch:<p class="code">$ git branch -d [the_local_branch_name]</p></li>
+      <li>Delete remote branch:<p class="code">$ git push origin :[the_remote_branch_name]</p></li>
+      <li>Let you decide on single hunks staging in the file:<p class="code">$ git add -patch [the_file_path_to_add]</p></li>
+    </ul>
+  </div>
+
+  <div id="Useful_terminal_commands" class="wikiDiv">
+    <h2>Useful terminal commands</h2>
+    <ul>
+      <li>Upgrade Oh-My-Zsh:<p class="code">$ ~/.oh-my-zsh</br>$ git stash</br>$ apt-get upgrade oh-my-zsh</br>$ git stash pop</p></li>
+      <li>Check port status at an IP address from remote (need to install nmap):<p class="code">$ sudo nmap -A -O -vvv ip_address</p></li>
+      <li>Check the process using a port:<p class="code">$ lsof -n -i4TCP:$PORT | grep LISTEN</p></li>
+      <li>Check your external (router to out) IP address:<p class="code">$ wget http://ipinfo.io/ip -qO</p></li>
+      <li>Check network status:<p class="code">$ lshw -C network</p></li>
+      <li>Copy SSH to clipboard (need to install xclip):<p class="code">$ cat ~/.ssh/id_rsa.pub | xclip -selection clipboard</p></li>
+    </ul>
+  </div>
+
   <div id="JS_intro" class="wikiDiv">
     <h2>Intro</h2>
     <div>
@@ -172,6 +195,37 @@
         <li>basic mathematic operations (to negate reliance on ‘magic’ numbers)</li>
         <li>colour manipulations (to allow consistent manipulation of the aforementioned variables)</li>
       </ul>
+    </div>
+  </div>
+
+  <div id="curring_functions" class="wikiDiv">
+    <h2>Curring functions</h2>
+    <div>
+      Curried functions come from <span class="italic">functional JavaScript</span>, which aims to be shorter, tighter and getting to the point in the fewest lines possible with less repetition.</br></br>
+      Basically currying is a way of constructing functions that allows partial application of a function’s arguments. What this means is that you can pass all of the arguments a function is expecting and get the result, or pass a subset of those arguments and get a function back that’s waiting for the rest of the arguments.</br>
+      Currying is elemental in languages such as Haskell and Scala, which are built around functional concepts.</br></br>
+      Easy example:</br>
+      <pre class="code">
+var greetCurried = greeting => name => {
+  `${greeting}, ${name}`
+}
+      </pre></br>
+      This function can be called like this:</br>
+      <pre class="code">
+greetCurried("Hi there")("Howard"); //"Hi there, Howard"
+      </pre>
+      To transform a non curried function into a curried one you can use:</br>
+      <pre class="code">
+var curryIt = uncurried => {
+  let parameters = Array.prototype.slice.call(arguments, 1)
+  return () => {
+    uncurried.apply(this, parameters.concat(
+      Array.prototype.slice.call(arguments, 0)
+    ))
+  }
+}
+      </pre>
+
     </div>
   </div>
 

@@ -30,6 +30,10 @@ h3{
   font-style: italic;
 }
 
+.red{
+  color: red;
+}
+
 .wikiDiv{
   margin: 100px 15px;
   width: 70%;
