@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>&lt;wiki&gt;</title>
+  <link href='../../css/wiki.css' rel='stylesheet' type='text/css'></style>
+  <link href='https://fonts.googleapis.com/css?family=Lobster|Inconsolata' rel='stylesheet' type='text/css'>
+  <link rel="import" href="common/navbar.html">
+</head>
+<body>
+
+  <nav-bar title="Wiki" subsections="JS_intro, rules_of_modules, boilerplate, CSS_intro, seven_one, oocss, enduringCSS"></nav-bar>
+
+  <div id="JS_intro" class="wikiDiv">
+    <h2>Intro</h2>
+    <div>
+      JS architecture needs to be modular in order to build complex scalable architectures that are easy to mantain.</br></br>
+      Doing so allows for separate pieces of code to work independently with respect to one another, thus making them a lot easyer to debug and mantain.</br></br>
+      Modern code architectures are experiencing a shift of the main logic from the backend services, which are increasingly designed as mere data dispensers communicating throug a restful API architecture, to the frontend.</br>
+      The client side is evolving to adapt to this new logic and in order to address the new needs, increasigly elaborate frontend solutions saw the light in recent years (Backbone, Angular, React).</br></br>
+      I will now try to make a very incomplete overview of the existing possibilities to structure your code in case you are going with one of these, in Particular I will focus on looking for a good pal for <strong>React - Redux</strong>.
+    </div>
+  </div>
+
+  <div id="rules_of_modules" class="wikiDiv">
+    <h2>Golden Rules</h2>
+    There are a few rules you should follow in order to write consistent, clean modules that do not interfere with your architecture:
+    <ul>
+      <li>The 'sandbox' (interface to ensure <strong>loose coupling <span class="tooltip">a loosely coupled system is one in which each of its components has, or makes use of, little or no knowledge of the definitions of other separate components</span></strong>[reducers?]) is where the interaction with outer worls takes place, NOWERE ELSE!</li>
+      <li>You must not access non native global objects inside a module.</li>
+      <li>Only access DOM elements from the sandbox.</li>
+      <li>Do not create global objects!</li>
+      <li>Don't reference other modules!</li>
+    </ul>
+  </div>
+
+  <div id="boilerplate" class="wikiDiv">
+    <h2>Boilerplate</h2>
+    <div>
+      BoilerplateJS is a collection of product engineering patterns and some JavaScript libraries.</br>
+      It relies on <strong>'Asynchronous Module Definition' <span class="tooltip">AMD, bacically an API reference (is the foundation of RequireJS)</span></strong>to define modules.
+      It also implements some Object Oriented patterns/best-practices.</br></br>
+      It does so trough the <span class="italic">"Boiler.Context"</span> class, a self contained and protected facade for all of the resource needs of a module which interact with other contexts in a controlled manner [basically a sandbox?].</br></br>
+      The tipical structure for the UI in Boilerplate is:</br>
+      <ul>
+        <li>assets (folder, [img etc..])</li>
+        <li>nls (folder, [locales])</li>
+        <li>style.css</li>
+        <li>view.html</li>
+        <li>viewmodel.js (logic of the module [could be controller])</li>
+        <li>component.js (encapsulate all of the above and communicate with the external world)</li>
+      </ul>
+      "Boiler.Context" exposes a pair of mediating methods 'listen' & 'notify' which enable components to interact,
+      this looks like the Action Dispatcher in React Flux, with the difference that the logic is not isolated in a dispatcher but spread among components.</br>
+      Boilerplate claims to be just an architecture reference that can integrate with other MVC libraries such as Backbone (altough I can't find a reason to use an MVC on top of it....).
+    </div>
+    <h2>My toughts</h2>
+    <div>
+      <ul>
+        <li>Boilerplate could integrate well with Atomic Design as the Boiler.Context object is "nestable".</li>
+        <li>Redux allows for higher modularity as communication between modules lies on an external sandbox (reducers) and not on specific methods of the <strong>module wrapper <span class="tooltip">seems to me that boilerplate is breaking a golden rule here...</span></strong>.</li>
+        <li>Unit testing, client-side routing and a documentation tool are built in natively.</li>
+      </ul>
+      Overall it seems to me that Boilerplate is shipped with quite a lot of libraries and, altough it might be useful in some cases, most of these libraries might be unwanted.
+      In the end, if I was to go with this, I woudn't use React nor Redux. It's a nice approach but, despite the makers claims, I don't think it would integrate well with other frameworks, adding to many layers and complexity.</br>
+      I would thus go with the performance, one way data binding of React combined with one way data flow of Redux.
+    </div>
+  </div>
+
+  <div id="CSS_intro" class="wikiDiv">
+    <h2>Intro to CSS Architecture</h2>
+    <div>
+      Along the lines of JS architecture, CSS architecture also has to be modular if you don't want to end up with a 'boiling potato'.</br></br>
+      There are many different (but somewhat similar) approaches to structure a scalable CSS library:
+      <ul>
+        <li>
+          SMACCS
+        </li>
+        <li>
+          Expressive CSS
+        </li>
+        <li>
+          BEM
+        </li>
+        <li>
+          7-1 Architecture
+        </li>
+        <li>
+          OOCSS (Atomic CSS)
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="seven_one" class="wikiDiv">
+    <h2>7-1</h2>
+    7-1 Pattern is described in the official SASS documentation. Basically the 7-1 stands for 7 foldersw, 1 file.</br></br>
+    The seven folders are:
+    <ul class="italic">
+      <li>base/</li>
+      <li>components/</li>
+      <li>layout/</li>
+      <li>pages/</li>
+      <li>themes/</li>
+      <li>abstracts/</li>
+      <li>vendors/</li>
+    </ul>
+
+    that are themselves structured as follows:
+    <pre class="code">sass/
+      |
+      | abstracts/
+      |   | _variables.scss    # Sass Variables
+      |   | _functions.scss    # Sass Functions
+      |   | _mixins.scss       # Sass Mixins
+      |   | _placeholders.scss # Sass Placeholders
+      |
+      | base/
+      |   | _reset.scss        # Reset/normalize
+      |   | _typography.scss   # Typography rules
+      |
+      | components/
+      |   | _buttons.scss      # Buttons
+      |   | _carousel.scss     # Carousel
+      |   | _cover.scss        # Cover
+      |   | _dropdown.scss     # Dropdown
+      |
+      | layout/
+      |   | _navigation.scss   # Navigation
+      |   | _grid.scss         # Grid system
+      |   | _header.scss       # Header
+      |   | _footer.scss       # Footer
+      |   | _sidebar.scss      # Sidebar
+      |   | _forms.scss        # Forms
+      |
+      | pages/
+      |   | _home.scss         # Home specific styles
+      |   | _contact.scss      # Contact specific styles
+      |
+      | themes/
+      |   | _theme.scss        # Default theme
+      |   | _admin.scss        # Admin theme
+      |
+      | vendors/
+      |   | _bootstrap.scss    # Bootstrap
+      |   | _jquery-ui.scss    # jQuery UI
+      |
+
+    </pre>
+
+    <p>And the single file:</p>
+    <ul>
+      <li>main.scss</li>
+    </ul>
+    <h2>My toughts</h2>
+    This approach is a little less modular compared to Atomic design, as some of the folders are there to serve more general parts of the UI; you might say that components need to be aware of the layout styling. A more helpful approach would be (in my humble opinion) to discard those folders and keep the shared styling (if there ever is one) in the abstracts folder.
+  </div>
+
+  <div id="oocss" class="wikiDiv">
+    <h2>OOCSS</h2>
+    <div>
+    </div>
+  </div>
+
+  <div id="enduringCSS" class="wikiDiv">
+    <h2>Enduring CSS</h2>
+    <div>
+      The <strong>Enduring CSS approach<span class="tooltip">By Ben Fraim (https://benfrain.com/enduring-css-writing-style-sheets-rapidly-changing-long-lived-projects/)</span></strong> states that a preprocessor such as SASS and the following features are essential for a mature CSS codebase:
+      <ul>
+        <li>variables (to mitigate human errors with colour picking and specifying constants like grid measures)</li>
+        <li>fragment/partials of styles (to facilitate one-to-one parity with a feature branch or template)</li>
+        <li>basic mathematic operations (to negate reliance on ‘magic’ numbers)</li>
+        <li>colour manipulations (to allow consistent manipulation of the aforementioned variables)</li>
+      </ul>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", (event) => {
+      let h = screen.height + window.innerHeight;
+      document.body.style.height = `${h}px`;
+      document.body.style.background = 'linear-gradient(to bottom, white 30%, rgba(0,0,0,.7)) no-repeat';
+      document.body.style.backgroundAttachment = 'fixed';
+      document.body.style.margin = 0;
+    });
+  </script>
+</body>
+</html>
