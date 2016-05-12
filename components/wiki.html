@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <nav-bar title="Wiki" subsections="Useful_git_commands, Useful_terminal_commands, JS_intro, rules_of_modules, boilerplate, CSS_intro, seven_one, oocss, enduringCSS, curring_functions, redux_saga"></nav-bar>
+  <nav-bar title="Wiki" subsections="Useful_git_commands, Useful_terminal_commands, JS_intro, rules_of_modules, boilerplate, CSS_intro, seven_one, oocss, enduringCSS, curring_functions, redux_saga, ES6_Generators"></nav-bar>
   <div class="space"></div>
 
   <div id="Useful_git_commands" class="wikiDiv">
@@ -244,6 +244,50 @@ var curryIt = uncurried => {
       They can be seen as Processes running in the background. Sagas watch the actions dispatched to the Store, then decide what to do based on dispatched actions:
       Either making an asynchronous call (like an AJAX request), dispatching other actions to the Store, or even starting other Sagas dynamically.
       This is achieved by yelding JavaScript Objects containing instructions to be executed by the Saga middleware. Tasks started in redux-saga can be cancelled at any moment either manually or automatically by putting them in a race with other Effects.
+    </div>
+  </div>
+
+  <div id="ES6_Generators" class="wikiDiv">
+    <h2>ES6 Generators</h2>
+    <div>
+       Up till ES5 you've always been able to assume something fairly fundamental about your functions: once the function starts running, it will always run to completion before any other JS code can run.
+       The challenges of multi-threaded programming were never faced in JavaScript as it is always single-threaded (only one command/function executing at any given time).
+       Web Workers are an exception as they are a mechanism where you can spin up a whole separate thread for a part of a JS program to run in, totally in parallel to your main JS program thread.
+       The reason this doesn't introduce multi-threaded complications into our programs is that the two threads can only communicate with each other through normal async events, which always abide by the event-loop one-at-a-time behavior required by run-to-completion.</br></br>
+       <strong class="italics">With ES6 generators, we have a different kind of function, which may be paused in the middle, one or many times, and resumed later, allowing other code to run during these paused periods.</strong></br></br>
+       ES6 generator functions are "cooperative" in their concurrency behavior. Inside the generator function body, you use the new <strong>yield</strong> keyword to pause the function from inside itself. Nothing can pause a generator from the outside; it pauses itself when it comes across a yield.
+       However, once a generator has yield-paused itself, it cannot resume on its own. An external control must be used to restart the generator.</br></br>
+       Ex:</br>
+       <pre class="code">
+function *foo(x) {
+  var y = 2 * (yield (x + 1));
+  var z = yield (y / 3);
+  return (x + y + z);
+}
+
+var it = foo( 5 );
+
+// note: not sending anything into `next()` here
+console.log( it.next() );       // { value:6, done:false }
+console.log( it.next( 12 ) );   // { value:8, done:false }
+console.log( it.next( 13 ) );   // { value:42, done:true }
+       </pre>
+       The yield (x + 1) is what sends out value 6. The second next(12) call sends 12 to that waiting yield (x + 1) expression, so y is set to 12 * 2, value 24. Then the subsequent yield (y / 3) (yield (24 / 3)) is what sends out the value 8. The third next(13) call sends 13 to that waiting yield (y / 3) expression, making z set to 13.</br></br>
+       This is an interesting pattern:</br>
+       <pre class="code">
+function *foo(x) {
+  var y = 2 * (yield (x + 1));
+  var z = yield (y / 3);
+  return (x + y + z);
+}
+
+var it = foo( 5 );
+
+// note: not sending anything into `next()` here
+console.log( it.next() );       // { value:6, done:false }
+console.log( it.next( 12 ) );   // { value:8, done:false }
+console.log( it.next( 13 ) );   // { value:42, done:true }
+       </pre>
 
 
     </div>
