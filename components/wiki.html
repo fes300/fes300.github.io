@@ -229,19 +229,24 @@ var curryIt = uncurried => {
       </pre>
 
     </div>
+  </div>
 
-    <div id="redux_saga" class="wikiDiv">
-      <h2>Redux Saga</h2>
-      <div>
-        With sagas the application logic lives in 2 places:
-        <ul>
-          <li>Reducers are responsible for handling state transitions between actions.</li>
-          <li>Sagas are responsible for orchestrating complex/asynchronous operations.</li>
-        </ul>
-        Sagas are created using <strong>Generator functions ss<span class="tooltip"><a href="https://davidwalsh.name/es6-generators">https://davidwalsh.name/es6-generators</a></span></strong>
-      </div>
+  <div id="redux_saga" class="wikiDiv">
+    <h2>Redux Saga</h2>
+    <div>
+      With sagas the application logic lives in 2 places:
+      <ul>
+        <li>Reducers are responsible for handling state transitions between actions.</li>
+        <li>Sagas are responsible for orchestrating complex/asynchronous operations.</li>
+      </ul>
+      Sagas are created using <strong>Generator functions <span class="tooltip"><a href="https://davidwalsh.name/es6-generators">https://davidwalsh.name/es6-generators</a></span></strong>
+      and are fired only once at the start of the application (but startup Sagas may fire other Sagas dynamically).
+      They can be seen as Processes running in the background. Sagas watch the actions dispatched to the Store, then decide what to do based on dispatched actions:
+      Either making an asynchronous call (like an AJAX request), dispatching other actions to the Store, or even starting other Sagas dynamically.
+      This is achieved by yelding JavaScript Objects containing instructions to be executed by the Saga middleware. Tasks started in redux-saga can be cancelled at any moment either manually or automatically by putting them in a race with other Effects.
+
+
     </div>
-
   </div>
 
   <script type="text/javascript">
