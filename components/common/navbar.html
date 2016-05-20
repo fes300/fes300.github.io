@@ -1,5 +1,8 @@
 <template>
   <style>
+    ::-webkit-scrollbar {
+      display: none;
+    }
     header{
       background: rgb(127, 179, 130);
     }
@@ -13,6 +16,8 @@
       font-family: Lobster;
     }
     .menu{
+      overflow-y: scroll;
+      overflow-x: hidden;
       height: 100%;
       width: 20%;
       border-right: solid 2px rgb(206, 210, 207);
@@ -47,8 +52,6 @@
 </template>
 
 <script>
-'use strict'
-
 ((window, document, undefined) => {
     var thatDoc = document,
         thisDoc =  (thatDoc._currentScript || thatDoc.currentScript).ownerDocument,
