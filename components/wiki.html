@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <nav-bar title="Wiki" subsections="Useful_git_commands, Useful_terminal_commands, JS_intro, rules_of_modules, boilerplate, CSS_intro, seven_one, oocss, enduringCSS, curring_functions, redux_saga, ES6_Generators"></nav-bar>
+  <nav-bar title="Wiki" subsections="Useful_git_commands, Useful_terminal_commands, JS_intro, rules_of_modules, boilerplate, CSS_intro, seven_one, oocss, enduringCSS, curring_functions, redux_saga, ES6_Generators, Immutable"></nav-bar>
   <div class="space"></div>
 
   <div id="Useful_git_commands" class="wikiDiv">
@@ -21,6 +21,7 @@
       <li>Let you decide on single hunks staging in the file:<p class="code">$ git add -patch [the_file_path_to_add]</p></li>
       <li>Force going back to remote master:<p class="code">$ git reset --hard</p></li>
       <li>Delete your last commit staged but not pushed:<p class="code">$ git reset --hard HEAD~1</p></li>
+      <li>Check last commits:<p class="code">$ git log -p -[numberOfCommitsToCheck]</p></li>
     </ul>
   </div>
 
@@ -33,6 +34,7 @@
       <li>Check your external (router to out) IP address:<p class="code">$ wget http://ipinfo.io/ip -qO</p></li>
       <li>Check network status:<p class="code">$ lshw -C network</p></li>
       <li>Copy SSH to clipboard (need to install xclip):<p class="code">$ cat ~/.ssh/id_rsa.pub | xclip -selection clipboard</p></li>
+      <li>Check laptop usage:<p class="code">$ top</p></li>
     </ul>
   </div>
 
@@ -290,6 +292,27 @@ console.log( it.next( 13 ) );   // { value:42, done:true }
        </pre>
 
 
+    </div>
+  </div>
+
+  <div id="Immutable" class="wikiDiv">
+    <h2>Immutable</h2>
+    <div>
+      Basically:</br>
+    <pre class="code">
+import { Map } from ‘immutable’;
+
+//  transform object into immutable map
+let obj1 = Map({ prop: ’someValue’ });
+const obj2 = obj1;
+console.log(obj1 === obj2);  // true
+
+obj1 = obj1.set(‘prop’, ’someValue’);  // set same old value
+console.log(obj1 === obj2);  // true | does not break reference because nothing has changed
+
+obj1 = obj1.set(‘prop’, ’someNewValue’);   // set new value
+console.log(obj1 === obj2);  // false | breaks reference
+      </pre>
     </div>
   </div>
 
