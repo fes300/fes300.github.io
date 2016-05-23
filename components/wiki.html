@@ -28,13 +28,16 @@
   <div id="Useful_terminal_commands" class="wikiDiv">
     <h2>Useful terminal commands</h2>
     <ul>
-      <li>Upgrade Oh-My-Zsh:<p class="code">$ ~/.oh-my-zsh</br>$ git stash</br>$ apt-get upgrade oh-my-zsh</br>$ git stash pop</p></li>
       <li>Check port status at an IP address from remote (need to install nmap):<p class="code">$ sudo nmap -A -O -vvv ip_address</p></li>
       <li>Check the process using a port:<p class="code">$ lsof -n -i4TCP:$PORT | grep LISTEN</p></li>
       <li>Check your external (router to out) IP address:<p class="code">$ wget http://ipinfo.io/ip -qO</p></li>
       <li>Check network status:<p class="code">$ lshw -C network</p></li>
-      <li>Copy SSH to clipboard (need to install xclip):<p class="code">$ cat ~/.ssh/id_rsa.pub | xclip -selection clipboard</p></li>
       <li>Check laptop usage:<p class="code">$ top</p></li>
+      <li>Check the logs of a service:<p class="code">$ var/log/[serviceName]</p></li>
+      <li>Copy SSH to clipboard (need to install xclip):<p class="code">$ cat ~/.ssh/id_rsa.pub | xclip -selection clipboard</p></li>
+      <li>Create a link:<p class="code">$ ln -s [path]</p></li>
+      <li>Track the last entries in file:<p class="code">$ tail - f [command]</p></li>
+      <li>Upgrade Oh-My-Zsh:<p class="code">$ ~/.oh-my-zsh</br>$ git stash</br>$ apt-get upgrade oh-my-zsh</br>$ git stash pop</p></li>
     </ul>
   </div>
 
