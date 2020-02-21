@@ -39,36 +39,6 @@ h1 {
   align-items: center;
 }
 
-.tooltip-container {
-  position: relative;
-  display: inline;
-}
-
-.tooltip {
-  opacity: 0;
-  z-index: 3;
-  height: 20px;
-  position: absolute;
-  top: calc(-100% - 30px);
-  left: 80%;
-  font-size: 0.8em;
-  background-color: #fff;
-  padding: 7px;
-  border: solid 1px rgb(215, 220, 223);
-  transition-property: opacity;
-  transition-duration: 0.5s;
-  white-space: nowrap;
-}
-
-.tooltip.two-rows {
-  height: 40px;
-  top: calc(-100% -50px);
-}
-
-.tooltip-container:hover .tooltip {
-  opacity: 1;
-}
-
 .code {
   width: 500px;
   margin: 100px auto 0 auto;
