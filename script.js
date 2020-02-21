@@ -37,7 +37,7 @@ window.onscroll = function(e) {
 
   const el = document.querySelector(".moving-title");
   left = Math.max(10, this.titleCenter - pageYOffset * 8);
-  el.style.top = Math.min(-40 + pageYOffset, 15) + "px";
+  el.style.top = Math.min(-40 + pageYOffset * 0.5, 15) + "px";
   el.style.left = left + "px";
   const { innerHTML, width } = getText(left);
   el.innerHTML = innerHTML;
