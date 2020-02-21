@@ -1,14 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-</head>
+  <head>
+    <meta charset="utf-8">
+    <title>Federico Sordillo - web development consultant</title>
+    <link href='../../css/wiki.css' rel='stylesheet' type='text/css'></style>
+    <link href='https://fonts.googleapis.com/css?family=Lobster|Inconsolata' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <h1 class="moving-title-space"></h1>
 
-<header>
-</header>
-<body>
-  <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", (event) => {
-      location.replace("/components/wiki.html");
-    })
-  </script>
-</body>
+    <div class="navbar-title-container">
+      <h1 class="moving-title">federico sordillo</h1>
+      <h3>web development consultant</h3>
+
+      <div class="menu">
+        <div class="menu_item" for="whoami">
+          whoami
+        </div>
+        <div class="menu_item" for="whatido">
+          what do I do?
+        </div>
+        <div class="menu_item" for="contacts">
+          contacts
+        </div>
+      </div>
+    </div>
+
+    <div id="whoami" class="wikiDiv">
+      <h2>whoamI?</h2>
+      <p class="code">$ i am me</p>
+      <div class="tooltip-container">
+        this is a tooltip example <span class="tooltip">tooltip example</span>
+      </div>
+      <span class="italic">this is an italic example</span>
+    </div>
+
+    <div id="whatido" class="wikiDiv">
+      <h2>What do I do?</h2>
+      <p class="code">$ i am me</p>
+      <div class="tooltip-container">
+        this is a tooltip example <span class="tooltip">tooltip example</span>
+      </div>
+      <span class="italic">this is an italic example</span>
+    </div>
+
+    <div id="contacts" class="wikiDiv">
+      <h2>Contacts</h2>
+      <p class="code">$ i am me</p>
+      <div class="tooltip-container">
+        this is a tooltip example <span class="tooltip">tooltip example</span>
+      </div>
+      <span class="italic">this is an italic example</span>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
