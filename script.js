@@ -21,15 +21,18 @@ document.querySelectorAll(".menu_item").forEach(e =>
       s.classList.remove("active");
     });
     e.target.classList.add("active");
-    // scroll
-    let elPos = document.querySelector(
-      `#${e.target.attributes.for.value.toLowerCase()}`
-    );
-    let scrollPos =
-      window.pageYOffset + elPos.getBoundingClientRect().top - 150;
-    window.scrollTo(0, scrollPos);
+
+    scrollToId(e.target.attributes.for.value.toLowerCase());
   })
 );
+
+function scrollToId(id) {
+  console.log(123);
+
+  let elPos = document.querySelector(`#${id}`);
+  let scrollPos = window.pageYOffset + elPos.getBoundingClientRect().top - 150;
+  window.scrollTo(0, scrollPos);
+}
 
 window.onscroll = function(e) {
   const menuWidth = Math.min(0, -180 + pageYOffset * 2.6);
@@ -46,8 +49,6 @@ window.onscroll = function(e) {
 
 function getText(left) {
   const howMuch = left / titleCenter;
-  console.log(left, titleCenter, howMuch);
-
   if (howMuch > 0.7) {
     return { innerHTML: "federico sordillo", width: 300 };
   }

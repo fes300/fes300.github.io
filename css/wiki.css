@@ -39,6 +39,14 @@ h1 {
   align-items: center;
 }
 
+.space-bottom-20 {
+  margin-bottom: 20px;
+}
+
+.space-bottom-60 {
+  margin-bottom: 60px;
+}
+
 .code {
   width: 500px;
   margin: 100px auto 0 auto;
@@ -98,6 +106,7 @@ header {
 
 .moving-title {
   position: absolute;
+  cursor: pointer;
   width: 300px;
   top: -40px;
   left: 0;
