@@ -4,6 +4,7 @@ html {
 
 body {
   font-family: "Inconsolata";
+  font-size: 1em;
   text-align: center;
   line-height: 150%;
 }
@@ -47,8 +48,20 @@ h1 {
   margin-bottom: 60px;
 }
 
+.space-top-20 {
+  margin-top: 20px;
+}
+
+.space-top-40 {
+  margin-top: 40px;
+}
+
+.text-center {
+  text-align: center;
+}
+
 .code {
-  width: 500px;
+  width: 600px;
   margin: 100px auto 0 auto;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
   -webkit-border-radius: 3px;
@@ -108,7 +121,7 @@ header {
   position: absolute;
   cursor: pointer;
   width: 300px;
-  top: -40px;
+  top: -60px;
   left: 0;
   right: 0;
   z-index: 3;
@@ -120,7 +133,8 @@ header {
   overflow-y: scroll;
   overflow-x: hidden;
   height: 100%;
-  width: 180px;
+  min-width: 140px;
+  width: 10%;
   border-right: solid 2px rgb(206, 210, 207);
   border-bottom: solid 2px rgb(206, 210, 207);
   position: absolute;
@@ -132,8 +146,10 @@ header {
   padding-top: 30px;
 }
 
-.main-layout {
-  display: flex;
+.sections-container {
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-bottom: 1500px;
 }
 
 .menu_item {
@@ -156,4 +172,15 @@ header {
 }
 .menu_item:active {
   background-color: rgb(228, 231, 224);
+}
+
+@media screen and (min-width: 320px) {
+  html {
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  }
+}
+@media screen and (min-width: 1000px) {
+  html {
+    font-size: 22px;
+  }
 }

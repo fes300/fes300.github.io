@@ -27,10 +27,8 @@ document.querySelectorAll(".menu_item").forEach(e =>
 );
 
 function scrollToId(id) {
-  console.log(123);
-
   let elPos = document.querySelector(`#${id}`);
-  let scrollPos = window.pageYOffset + elPos.getBoundingClientRect().top - 150;
+  let scrollPos = window.pageYOffset + elPos.getBoundingClientRect().top - 100;
   window.scrollTo(0, scrollPos);
 }
 
@@ -40,23 +38,24 @@ window.onscroll = function(e) {
 
   const el = document.querySelector(".moving-title");
   left = Math.max(10, this.titleCenter - pageYOffset * 8);
-  el.style.top = Math.min(-40 + pageYOffset * 0.5, 15) + "px";
+  el.style.top = Math.min(-60 + pageYOffset * 0.5, 15) + "px";
   el.style.left = left + "px";
-  const { innerHTML, width } = getText(left);
+  const { innerHTML, width, fontSize } = getText(left);
   el.innerHTML = innerHTML;
   el.style.width = width + "px";
+  el.style.fontSize = fontSize + "em";
 };
 
 function getText(left) {
   const howMuch = left / titleCenter;
   if (howMuch > 0.7) {
-    return { innerHTML: "federico sordillo", width: 300 };
+    return { innerHTML: "federico sordillo", width: 300, fontSize: 2 };
   }
   if (howMuch > 0.5) {
-    return { innerHTML: "federi sordill", width: 250 };
+    return { innerHTML: "federi sordill", width: 250, fontSize: 1.7 };
   }
   if (howMuch > 0.3) {
-    return { innerHTML: "federi sordill", width: 250 };
+    return { innerHTML: "federi sordill", width: 250, fontSize: 1.5 };
   }
-  return { innerHTML: "fes300", width: 120 };
+  return { innerHTML: "fes300", width: 120, fontSize: 1.5 };
 }
