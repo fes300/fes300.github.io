@@ -178,9 +178,15 @@ header {
   html {
     font-size: calc(16px + 6 * ((100vw - 320px) / 680));
   }
+  .menu {
+    display: none;
+  }
 }
 @media screen and (min-width: 1000px) {
   html {
     font-size: 22px;
+  }
+  .menu {
+    display: block;
   }
 }
