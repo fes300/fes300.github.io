@@ -86,6 +86,17 @@
 .social-icon--e-mail .tooltip:after {
   border-top-color: #c1392a;
 }
+.social-icon--dev {
+  background: #000;
+  color: #fff;
+}
+.social-icon--dev .tooltip {
+  background: #000;
+  color: #fff;
+}
+.social-icon--dev .tooltip:after {
+  border-top-color: #000;
+}
 .social-icon i {
   position: relative;
   top: 1px;
