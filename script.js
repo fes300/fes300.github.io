@@ -37,8 +37,8 @@ window.onscroll = function(e) {
   document.querySelector(".menu").style.left = menuWidth + "px";
 
   const el = document.querySelector(".moving-title");
-  left = Math.max(10, this.titleCenter - pageYOffset * 8);
-  el.style.top = Math.min(-60 + pageYOffset * 0.5, 15) + "px";
+  left = Math.max(10, this.titleCenter - pageYOffset * 5);
+  el.style.top = Math.min(-60 + pageYOffset * 0.8, 11) + "px";
   el.style.left = left + "px";
   const { innerHTML, width, fontSize } = getText(left);
   el.innerHTML = innerHTML;
