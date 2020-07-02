@@ -175,6 +175,10 @@ header {
   background-color: rgb(228, 231, 224);
 }
 
+.calendly-badge-content span {
+  display: none !important;
+}
+
 @media screen and (min-width: 320px) {
   html {
     font-size: calc(16px + 6 * ((100vw - 320px) / 680));
