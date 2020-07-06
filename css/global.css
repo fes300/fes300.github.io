@@ -119,7 +119,6 @@ h2 {
 }
 
 .title {
-  cursor: pointer;
   margin-top: 40px;
   z-index: 3;
   background-color: #fff;
@@ -152,7 +151,16 @@ h2 {
 }
 
 .section-button {
+  cursor: pointer;
   padding: 0 5px;
+  transition: background-color 1s;
+}
+.section-button:hover {
+  background-color: rgba(0, 162, 255, 0.2);
+}
+.section-button.active:hover {
+  cursor: not-allowed;
+  background-color: #fff;
 }
 
 .profile-image {
