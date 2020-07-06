@@ -22,7 +22,8 @@
     <meta name="theme-color" content="#ffffff">
     <meta name="Description" content="personal page of Federico Sordillo - web development consultant">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='../../css/wiki.css' rel='stylesheet' type='text/css'></style>
+    <link href='../../css/global.css' rel='stylesheet' type='text/css'></style>
+    <link href='../../css/animations.css' rel='stylesheet' type='text/css'></style>
     <link href='../../css/iconsStyle.css' rel='stylesheet' type='text/css'></style>
     <link href='https://fonts.googleapis.com/css?family=Lobster|Inconsolata' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.0/css/all.css">
@@ -35,28 +36,16 @@
   </head>
 
   <body>
-    <h1 class="moving-title-space"></h1>
+    <h1 class="title">federico sordillo</h1>
+    <h3>web development consultant</h3>
 
-    <div class="navbar-title-container">
-      <h1 class="moving-title" onclick="scrollToId('whoami')">federico sordillo</h1>
-      <h3 id="subtitle">web development consultant</h3>
-
-      <div class="menu">
-        <div class="menu_item" for="whoami">
-          whoami
-        </div>
-        <div class="menu_item" for="whatido">
-          what do I do?
-        </div>
-        <div class="menu_item" for="contacts">
-          contacts
-        </div>
-      </div>
+    <div class="subtitle">
+      <h2 class="section-button shadow-pop-tr" onclick="setActive('whoami')">whoami?</h2>
+      <h2 class="section-button shadow-pop-tr">what I do</h2>
+      <h2 class="section-button shadow-pop-tr">Contacts</h2>
     </div>
-
     <div class="sections-container" >
-      <div id="whoami" class="wikiDiv">
-        <h2>whoami?</h2>
+      <div id="whoami" class="section">
         <p class="code">~/fes300.github.io:> whoami
           <br>
           <br>
@@ -75,20 +64,19 @@
         </div>
       </div>
 
-      <div id="whatido" class="wikiDiv">
-        <h2>What do I do?</h2>
+      <div id="whatido" class="section">
         <div class="text-center">
-          I will improve your existing product making it maintainable, scalable, resilient and up to date with the latest technologies. I will also transform your idea into a real product using agile methodologies the best tech stack for your case.
+          I will improve your existing product making it maintainable, scalable, resilient and up to date with the latest technologies.
+          I will also transform your idea into a real product using agile methodologies the best tech stack for your case.
           <br>
           <br>
           As a consultant, I specialize in front-end technologies, but I try to keep an all-round flexible approach.
-          I help customers shaping their internal processes and Agile methodologies while creating high-quality software that meets business requirements in the most <strong>efficient</strong> and <strong>effective</strong> way.
+          I help customers shaping their internal processes while creating high-quality software that meets business requirements in the most <strong>efficient</strong> and <strong>effective</strong> way.
         </div>
       </div>
 
-      <div id="contacts" class="wikiDiv">
-        <h2>Contacts</h2>
-        <p class="space-bottom-60 text-center">If you whish to contact me you can send me an e-mail or use any of my social pages.</p>
+      <div id="contacts" class="section">
+        <p class="space-bottom-60 text-center">If you whish to know more about me you can take a look at any of my social pages:</p>
         <div class="social-icons">
           <a class="social-icon social-icon--e-mail" href="mailto:federicosordillo@gmail.com?subject=Hi :)" target="_blank" rel="noopener noreferrer">
             <i class="fa fa-envelope"></i>
@@ -117,6 +105,7 @@
         </div>
       </div>
     </div>
+
     <script type="text/javascript" src="script.js"></script>
   </body>
 </html>

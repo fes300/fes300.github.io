@@ -13,15 +13,26 @@ h1,
 h3,
 h5 {
   margin: 0;
+  font-weight: normal;
+}
+
+#subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 
 h1 {
   margin-bottom: 10px;
 }
 
-.space {
-  width: 100%;
-  height: 5%;
+h2 {
+  margin: 10px 0;
 }
 
 .italic {
@@ -30,14 +41,6 @@ h1 {
 
 .red {
   color: red;
-}
-
-.wikiDiv {
-  margin: 100px 0 0;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .space-bottom-20 {
@@ -61,6 +64,7 @@ h1 {
 }
 
 .code {
+  text-align: left;
   width: 600px;
   max-width: 100%;
   margin: 100px auto 0 auto;
@@ -87,21 +91,14 @@ h1 {
   z-index: -1;
 }
 
-strong:hover span {
-  opacity: 1;
-}
-
-/* new */
 ::-webkit-scrollbar {
   display: none;
 }
-header {
-  background: rgb(127, 179, 130);
-}
-.navbar-title-container {
+
+.subtitle {
+  position: sticky;
   z-index: 2;
   border-bottom: solid 2px rgb(206, 210, 207);
-  position: sticky;
   flex-direction: column;
   left: 0;
   top: 0;
@@ -110,92 +107,55 @@ header {
   width: 100%;
   align-items: center;
   justify-content: center;
-  padding: 10px 0 15px 0;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
 }
 
-.moving-title-space {
-  height: 100px;
-  width: 100%;
-}
-
-.moving-title {
-  position: absolute;
+.title {
   cursor: pointer;
-  width: 300px;
-  top: -60px;
-  left: 0;
-  right: 0;
+  margin-top: 40px;
   z-index: 3;
   background-color: #fff;
-}
-
-.menu {
-  z-index: 2;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  height: 100%;
-  min-width: 140px;
-  width: 180px;
-  border-right: solid 2px rgb(206, 210, 207);
-  border-bottom: solid 2px rgb(206, 210, 207);
-  position: absolute;
-  left: -180px;
-  top: 100%;
-  height: 250px;
-  background-color: #fff;
-  font-family: Lobster;
-  padding-top: 30px;
 }
 
 .sections-container {
   margin: auto;
   width: 90%;
-  margin-bottom: 1500px;
-}
-
-.menu_item {
-  width: 100%;
-  height: 40px;
-  background-color: #fff;
-  padding: 20px 0;
-  cursor: pointer;
-  transition-duration: 0.5s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.active {
-  background-color: rgb(134, 219, 227) !important;
-}
-.menu_item:hover {
-  background-color: rgb(208, 229, 235);
-  width: 120%;
-}
-.menu_item:active {
-  background-color: rgb(228, 231, 224);
+  margin-bottom: 50px;
 }
 
 .calendly-badge-content span {
   display: none !important;
 }
 
+.section {
+  display: none;
+  margin-bottom: 100px;
+}
+
+.section.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.section-button {
+  padding: 0 5px;
+}
+
 @media screen and (min-width: 320px) {
   html {
     font-size: calc(16px + 6 * ((100vw - 320px) / 680));
   }
-  .menu {
-    display: none;
-  }
-  #subtitle {
-    width: calc(100% - 260px);
-  }
 }
+
 @media screen and (min-width: 1000px) {
   html {
     font-size: 22px;
-  }
-  .menu {
-    display: block;
   }
   .sections-container {
     width: calc(100% - 380px);
