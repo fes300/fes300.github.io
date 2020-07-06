@@ -36,76 +36,82 @@
   </head>
 
   <body>
-    <h1 class="title">federico sordillo</h1>
-    <h3>web development consultant</h3>
+    <div>
+      <h1 class="title">federico sordillo</h1>
+      <h3>web development consultant</h3>
 
-    <div class="subtitle">
-      <h2 class="section-button shadow-pop-tr" onclick="setActive('whoami')">whoami?</h2>
-      <h2 class="section-button shadow-pop-tr">what I do</h2>
-      <h2 class="section-button shadow-pop-tr">Contacts</h2>
-    </div>
-    <div class="sections-container" >
-      <div id="whoami" class="section">
-        <p class="code">~/fes300.github.io:> whoami
-          <br>
-          <br>
-          Technical Project Manager and functional developer. Specialized in Typescript, React and React Native. Based in Milan, Itay.
-        </p>
-
-        <div class="space-top-40 text-center">
-          As a software engineer and Technical Project Manager, I've been working on several projects, sometimes as part of the company's tech team, sometimes as an external contractor.
-          <br>
-          <br>
-          I worked on both backend and frontend and I can tackle both sides of web development but I also have a good understanding of the main DevOps concepts and have implemented several CI and CD pipelines in the past.
-          Over the years I specialized in frontend technologies, specifically <span class="italic">Typescript</span>, <span class="italic">React</span> and <span class="italic">React Native</span>.
-          <br>
-          <br>
-          Working with all kinds of clients, from big multinationals to smaller tech companies, I experienced first hand what makes a product successful and the importance of good communication and efficient processes.
-        </div>
+      <div class="subtitle">
+        <h2 class="section-button shadow-pop-tr" onclick="setActive('whoami', this)">whoami?</h2>
+        <h2 class="section-button shadow-pop-tr" onclick="setActive('whatido', this)">what do I do</h2>
+        <h2 class="section-button shadow-pop-tr" onclick="setActive('contacts', this)">Contacts</h2>
       </div>
+      <div class="sections-container space-top-40 space-bottom-80" >
+        <div id="whoami" class="section">
+          <div class="personal-description">
+            <div class="profile-image">
+              <img src="images/me.jpg" alt="software craftmanship" />
+            </div>
+            <p class="code">
+              ~/fes300.github.io:> whoami
+              <br>
+              <br>
+              Technical Project Manager and functional developer.
+              Specialized in Typescript, React and React Native. Based in Milan, Itay.
+            </p>
+          </div>
+          <div class="personal-description space-top-40">
+            As a software engineer and Technical Project Manager, I've been working on several projects, sometimes as part of the company's tech team, sometimes as an external contractor.
+            Working with all kinds of clients, from big multinationals to smaller tech companies, I experienced first hand what makes a product successful and the importance of good communication and efficient processes.
+            <br>
+            <br>
+            In my free time I like to read 📚 and hike 🏔 (and many other things, I tend to grow interests in the most disparate fields...).
+          </div>
+        </div>
 
-      <div id="whatido" class="section">
-        <div class="text-center">
-          I will improve your existing product making it maintainable, scalable, resilient and up to date with the latest technologies.
-          I will also transform your idea into a real product using agile methodologies the best tech stack for your case.
+        <div id="whatido" class="section">
+          <div>
+          I work on both backend and frontend (sometimes I also venture into DevOps, I love to automate 🤷‍♂️).
+          Over the years I specialized in frontend technologies, specifically <span class="italic underline"><strong>Typescript</strong></span>, <span class="italic underline"><strong>React</strong></span> and <span class="italic underline"><strong>React Native</strong></span>,
+          lately I grew an interest into design systems and components suites, mainly with with <strong class="underline">Lerna</strong> and <strong class="underline">Storybook</strong>.
           <br>
           <br>
           As a consultant, I specialize in front-end technologies, but I try to keep an all-round flexible approach.
-          I help customers shaping their internal processes while creating high-quality software that meets business requirements in the most <strong>efficient</strong> and <strong>effective</strong> way.
+          I help customers shaping their internal processes while creating high-quality software that meets business requirements in the most <strong class="underline">efficient</strong> and <strong class="underline">effective</strong> way.
+          </div>
+        </div>
+
+        <div id="contacts" class="section">
+          <p class="space-bottom-60 text-center">If you whish to know more about me you can take a look at any of my social pages:</p>
+          <div class="social-icons">
+            <a class="social-icon social-icon--e-mail" href="mailto:federicosordillo@gmail.com?subject=Hi :)" target="_blank" rel="noopener noreferrer">
+              <i class="fa fa-envelope"></i>
+              <div class="tooltip">email</div>
+            </a>
+            <a class="social-icon social-icon--github" href="https://github.com/fes300" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github"></i>
+              <div class="tooltip">Github</div>
+            </a>
+            <a class="social-icon social-icon--twitter" href="https://twitter.com/Fes3002" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-twitter"></i>
+              <div class="tooltip">Twitter</div>
+            </a>
+            <a class="social-icon social-icon--linkedin" href="https://www.linkedin.com/in/federico-sordillo-828b453b/" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-linkedin"></i>
+              <div class="tooltip">LinkedIn</div>
+            </a>
+            <a class="social-icon social-icon--codepen" href="https://codepen.io/fes300" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-codepen"></i>
+              <div class="tooltip">Codepen</div>
+            </a>
+            <a class="social-icon social-icon--dev" href="https://dev.to/fes300" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-dev"></i>
+              <div class="tooltip">blog</div>
+            </a>
+          </div>
         </div>
       </div>
 
-      <div id="contacts" class="section">
-        <p class="space-bottom-60 text-center">If you whish to know more about me you can take a look at any of my social pages:</p>
-        <div class="social-icons">
-          <a class="social-icon social-icon--e-mail" href="mailto:federicosordillo@gmail.com?subject=Hi :)" target="_blank" rel="noopener noreferrer">
-            <i class="fa fa-envelope"></i>
-            <div class="tooltip">email</div>
-          </a>
-          <a class="social-icon social-icon--github" href="https://github.com/fes300" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-github"></i>
-            <div class="tooltip">Github</div>
-          </a>
-          <a class="social-icon social-icon--twitter" href="https://twitter.com/Fes3002" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-twitter"></i>
-            <div class="tooltip">Twitter</div>
-          </a>
-          <a class="social-icon social-icon--linkedin" href="https://www.linkedin.com/in/federico-sordillo-828b453b/" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-linkedin"></i>
-            <div class="tooltip">LinkedIn</div>
-          </a>
-          <a class="social-icon social-icon--codepen" href="https://codepen.io/fes300" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-codepen"></i>
-            <div class="tooltip">Codepen</div>
-          </a>
-          <a class="social-icon social-icon--dev" href="https://dev.to/fes300" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-dev"></i>
-            <div class="tooltip">blog</div>
-          </a>
-        </div>
-      </div>
+      <script type="text/javascript" src="script.js"></script>
     </div>
-
-    <script type="text/javascript" src="script.js"></script>
   </body>
 </html>
