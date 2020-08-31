@@ -1,5 +1,13 @@
 var titleCenter = window.innerWidth / 2 - 150;
 
+const sections = ["#whoami", "#whatido", "#contacts"];
+
+function getActiveSection() {
+  return sections.includes(document.location.hash)
+    ? document.location.hash
+    : "#whoami";
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   document.body.style.background =
     "linear-gradient(to bottom, white 30%, rgba(0,0,0,.3)) no-repeat";
@@ -7,7 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.style.margin = 0;
 
   // set first section active after one second
-  setTimeout(() => document.querySelector(".section-button").click(), 1000);
+  setTimeout(
+    () => document.querySelector(`${getActiveSection()}-menu-button`).click(),
+    1000
+  );
 });
 
 function setActive(section, button) {
@@ -27,5 +38,7 @@ function setActive(section, button) {
     htmlSectionsCollection[i].classList.remove("active");
   }
 
-  document.getElementById(section).classList.add("active");
+  document.getElementById(`${section}-section`).classList.add("active");
+
+  document.location.hash = section;
 }

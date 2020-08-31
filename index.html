@@ -41,12 +41,12 @@
       <h3>web development consultant</h3>
 
       <div class="subtitle">
-        <h2 class="section-button shadow-pop-tr" onclick="setActive('whoami', this)">whoami?</h2>
-        <h2 class="section-button shadow-pop-tr" onclick="setActive('whatido', this)">what do I do</h2>
-        <h2 class="section-button shadow-pop-tr" onclick="setActive('contacts', this)">Contacts</h2>
+        <h2 class="section-button shadow-pop-tr" id="whoami-menu-button" onclick="setActive('whoami', this)">whoami?</h2>
+        <h2 class="section-button shadow-pop-tr" id="whatido-menu-button" onclick="setActive('whatido', this)">what do I do</h2>
+        <h2 class="section-button shadow-pop-tr" id="contacts-menu-button" onclick="setActive('contacts', this)">Contacts</h2>
       </div>
       <div class="sections-container space-top-40 space-bottom-80" >
-        <div id="whoami" class="section">
+        <div id="whoami-section" class="section">
           <div class="personal-description">
             <div class="profile-image">
               <img src="images/me.png" alt="software craftmanship" height="188px" />
@@ -68,19 +68,22 @@
           </div>
         </div>
 
-        <div id="whatido" class="section">
+        <div id="whatido-section" class="section">
           <div>
-          I work on both backend and frontend (sometimes I also venture into DevOps, I love to automate 🤷‍♂️).
-          Over the years I specialized in frontend technologies, specifically <span class="italic underline"><strong>Typescript</strong></span>, <span class="italic underline"><strong>React</strong></span> and <span class="italic underline"><strong>React Native</strong></span>.
-          Lately I grew an interest into design systems and components suites, mainly with with <strong class="underline">Lerna</strong> and <strong class="underline">Storybook</strong>.
+          I work on both backend and frontend (sometimes I also venture into DevOps, I love to automate 🤷‍♂️),
+          over the years I grew an interest in type theory and functional programming and ended up specializing in <span class="italic underline"><a href="https://github.com/microsoft/TypeScript">Typescript</a></span>, <span class="italic underline"><a href="https://github.com/reactjs/reactjs.org">React</a></span> and <span class="italic underline"><a href="https://github.com/facebook/react-native">React Native</a></span>.
           <br>
           <br>
-          As a consultant, I specialize in front-end technologies, but I try to keep an all-round flexible approach.
+          Lately I grew an interest into design systems and components suites, mainly with with <a href="https://github.com/lerna/lerna">Lerna</a>/<a href="https://github.com/nrwl/nx">NX</a> and <a href="https://github.com/storybookjs/storybook">Storybook</a>.
+          On the server I am experimenting with architectural patterns such as Event Sourcing and CQRS.
+          <br>
+          <br>
+          As a consultant I try to keep an all-round flexible approach,
           I help customers shaping their internal processes while creating high-quality software that meets business requirements in the most <strong class="underline">efficient</strong> and <strong class="underline">effective</strong> way.
           </div>
         </div>
 
-        <div id="contacts" class="section">
+        <div id="contacts-section" class="section">
           <p class="space-bottom-60 text-center">If you whish to know more about me you can take a look at any of my social pages:</p>
           <div class="social-icons">
             <a class="social-icon social-icon--e-mail" href="mailto:federicosordillo@gmail.com?subject=Hi :)" target="_blank" rel="noopener noreferrer">
