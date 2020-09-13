@@ -137,11 +137,16 @@ h2 {
 }
 
 .section {
-  display: none;
+  display: flex;
+  position: absolute;
+  opacity: 0;
+  transition: none;
 }
 
 .section.active {
-  display: flex;
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
+  position: relative;
   flex-direction: column;
 }
 
