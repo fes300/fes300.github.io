@@ -8,17 +8,13 @@ function getActiveSection() {
     : "#whoami";
 }
 
+document.querySelector(`${getActiveSection()}-menu-button`).click();
+
 document.addEventListener("DOMContentLoaded", () => {
   document.body.style.background =
     "linear-gradient(to bottom, white 30%, rgba(0,0,0,.3)) no-repeat";
   document.body.style.backgroundAttachment = "fixed";
   document.body.style.margin = 0;
-
-  // set first section active after one second
-  setTimeout(
-    () => document.querySelector(`${getActiveSection()}-menu-button`).click(),
-    1000
-  );
 });
 
 function setActive(section, button) {
