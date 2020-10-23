@@ -36,5 +36,10 @@ function setActive(section, button) {
 
   document.getElementById(`${section}-section`).classList.add("active");
 
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+
   document.location.hash = section;
 }
