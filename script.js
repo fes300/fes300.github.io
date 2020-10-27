@@ -10,13 +10,6 @@ function getActiveSection() {
 
 document.querySelector(`${getActiveSection()}-menu-button`).click();
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.body.style.background =
-    "linear-gradient(to bottom, white 30%, rgba(0,0,0,.3)) no-repeat";
-  document.body.style.backgroundAttachment = "fixed";
-  document.body.style.margin = 0;
-});
-
 function setActive(section, button) {
   var htmlSectionButtonsCollection = document.getElementsByClassName(
     "section-button"
@@ -42,4 +35,19 @@ function setActive(section, button) {
   })
 
   document.location.hash = section;
+}
+
+const title = document.getElementById("title")
+const subtitle = document.getElementById("subtitle")
+
+window.onscroll = () => {
+  const top = window.pageYOffset
+  const speed = 12
+  const scrollPercentage = Math.max(0, top/innerHeight)
+  const titleSize = Math.round(Math.max(0, 1 - scrollPercentage * speed) * 100) / 100
+
+  title.style.fontSize = titleSize * 2 + "em"
+  title.style.lineHeight = titleSize * 180 + "%"
+  subtitle.style.fontSize = titleSize * 1.17 + "em"
+  subtitle.style.lineHeight = titleSize * 180 + "%"
 }

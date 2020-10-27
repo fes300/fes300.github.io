@@ -16,23 +16,9 @@ h5 {
   font-weight: normal;
 }
 
-#subtitle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.17em;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-}
-
-h1 {
-  margin-bottom: 10px;
-}
-
-h2 {
-  margin: 10px 0;
+:root {
+  --primary-color: #01a2ff;
+  --primary-light: #daf1ff;
 }
 
 .italic {
@@ -103,31 +89,27 @@ h2 {
   display: none;
 }
 
-.subtitle {
-  position: sticky;
+#navigation {
+  position: fixed;
+  padding: 20px 0 10px;
+  flex-direction: column;
   z-index: 2;
   border-bottom: solid 2px rgb(206, 210, 207);
-  flex-direction: column;
   left: 0;
   top: 0;
   background-color: #fff;
   display: flex;
-  width: 100%;
+  width: 100vw;
   align-items: center;
   justify-content: center;
-  padding-bottom: 5px;
-}
-
-.title {
-  margin-top: 40px;
-  z-index: 3;
-  background-color: #fff;
 }
 
 .sections-container {
+  margin-top: 300px;
   margin-left: auto;
   margin-right: auto;
   width: 90%;
+  position: relative;
   max-width: 700px;
   text-align: left;
 }
@@ -137,14 +119,17 @@ h2 {
 }
 
 .section {
+  width: 0;
   display: flex;
   position: absolute;
   opacity: 0;
   transition: none;
+  overflow: hidden;
 }
 
 .section.active {
   opacity: 1;
+  width: auto;
   transition: opacity 0.3s ease-in;
   position: relative;
   flex-direction: column;
@@ -153,19 +138,30 @@ h2 {
 .section-buttons {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .section-button {
   cursor: pointer;
-  padding: 0 5px;
+  padding: 0 15px;
+  border: 1px solid;
+  margin: 5px;
+  background-color: #fff;
   transition: background-color 1s;
+  font-size: 0.8em;
 }
 .section-button:hover {
-  background-color: rgba(0, 162, 255, 0.2);
+  background-color: var(--primary-light);
 }
 .section-button.active:hover {
   cursor: not-allowed;
   background-color: #fff;
+}
+
+@media screen and (min-width: 425px) {
+  .section-button {
+    font-size: 1.2em;
+  }
 }
 
 .profile-image {
@@ -181,13 +177,13 @@ h2 {
 
 @media screen and (min-width: 320px) {
   html {
-    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+    font-size: calc(20px + 6 * ((100vw - 320px) / 680));
   }
 }
 
 @media screen and (min-width: 1000px) {
   html {
-    font-size: 22px;
+    font-size: 24px;
   }
   .sections-container {
     width: calc(100% - 380px);

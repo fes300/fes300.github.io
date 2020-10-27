@@ -37,14 +37,16 @@
 
   <body>
     <div>
-      <h1 class="title">federico sordillo</h1>
-      <h3>web development consultant</h3>
-
-      <div class="subtitle">
-        <h2 class="section-button shadow-pop-tr active" id="whoami-menu-button" onclick="setActive('whoami', this)">whoami?</h2>
-        <h2 class="section-button shadow-pop-tr" id="whatido-menu-button" onclick="setActive('whatido', this)">what do I do</h2>
-        <h2 class="section-button shadow-pop-tr" id="contacts-menu-button" onclick="setActive('contacts', this)">Contacts</h2>
+      <div id="navigation">
+        <div class="section-buttons">
+          <h4 class="section-button shadow-pop-tr active" id="whoami-menu-button" onclick="setActive('whoami', this)">whoami?</h4>
+          <h4 class="section-button shadow-pop-tr" id="whatido-menu-button" onclick="setActive('whatido', this)">what do I do</h4>
+          <h4 class="section-button shadow-pop-tr" id="contacts-menu-button" onclick="setActive('contacts', this)">Contacts</h4>
+        </div>
+        <h1 id="title">federico sordillo</h1>
+        <h3 id="subtitle">web development consultant</h3>
       </div>
+
       <div class="sections-container space-top-40 space-bottom-80" >
         <div id="whoami-section" class="section active">
           <div class="personal-description">
@@ -56,11 +58,12 @@
               <br>
               <br>
               Technical Project Manager and functional developer.
-              Specialized in Typescript, React and React Native. Based in Milan, Itay.
+              Specialized in TypeScript, React and React Native. Based in Milan, Itay.
             </p>
           </div>
           <div class="personal-description space-top-40">
-            As a software engineer and Technical Project Manager, I've been working on several projects, sometimes as part of the company's tech team, sometimes as an external contractor.
+            Throughout my years in the tech industry I've been working on several projects in the most disparate domains, from chatbots to fintech and big pharma services.
+            Sometimes I worked as a pure developer, sometimes I led small teams dealing with complex domains.
             Working with all kinds of clients, from big multinationals to smaller tech companies, I experienced first hand what makes a product successful and the importance of good communication and efficient processes.
             <br>
             <br>
@@ -70,18 +73,27 @@
 
         <div id="whatido-section" class="section">
           <div>
+          <h2><strong>my approach</strong></h2>
+          As a consultant I try to keep an all-round flexible approach: helping customers shape their internal processes and adopting best practices while creating high-quality software that meets business requirements in the most <strong class="underline">efficient</strong> and <strong class="underline">effective</strong> way.
+          <br>
+          <br>
+          Over the years (and especially in my experiences as a PM) I realized that oftentimes the real bottleneck to increase productivity lies in missing or broken processes.
+          Creating consensual decisions, collecting feedback, and having structured and constantly updated processes is key for any busuness to strive.
+          <br>
+          <br>
+          That is why I love to help improving on that area.<br>...But I also love to code so I usually do both.
+          <br>
+          <br>
+          <h2><strong>my technical focus</strong></h2>
           I work on both backend and frontend and sometimes I also venture into DevOps (I love to automate 🤷‍♂️).
-          Over the years I got more and more interested in type theory and functional programming patterns and ended up specializing in <span class="italic underline"><a href="https://github.com/microsoft/TypeScript">Typescript</a></span>, <span class="italic underline"><a href="https://github.com/reactjs/reactjs.org">React</a></span> and <span class="italic underline"><a href="https://github.com/facebook/react-native">React Native</a></span>.
+          Over the years I got more and more interested in type theory and functional programming patterns and ended up specializing in <span class="italic underline"><a href="https://github.com/microsoft/TypeScript">TypeScript</a></span>, <span class="italic underline"><a href="https://github.com/reactjs/reactjs.org">React</a></span> and <span class="italic underline"><a href="https://github.com/facebook/react-native">React Native</a></span>.
           <br>
           <br>
           I am fasciated by design systems and lately I am experimenting with <a href="https://github.com/lerna/lerna">Lerna</a>/<a href="https://github.com/nrwl/nx">NX</a> and <a href="https://github.com/storybookjs/storybook">Storybook</a>
           to try and find the best recipie for creating reusable code libraries that are both robust and easy to maintain. On the server I am experimenting with architectural patterns such as Event Sourcing and CQRS.
           <br>
           <br>
-          As a consultant I try to keep an all-round flexible approach: helping customers shape their internal processes and adopting best practices while creating high-quality software that meets business requirements in the most <strong class="underline">efficient</strong> and <strong class="underline">effective</strong> way.
-          <br>
-          <br>
-          <h3><strong>open source</strong></h3>
+          <h2><strong>open source</strong></h2>
           <span>Over the years I have been working on a few open-source projects but lately I am devoting my efforts to <span class="italic">ts-endpoint</span>, an ecosistem of small libraries to create simple definitions of endpoints to use both on the client and the server. You can check the docs <a href="https://ts-endpoint.federicosordillo.com">here</a></span>
           </div>
         </div>
